@@ -1,0 +1,16 @@
+server:
+  servlet:
+    context-path: /airpollution/service
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://localhost:3306/airquality
+    username: root
+    password: welcome1
+    driverClassName: com.mysql.cj.jdbc.Driver
