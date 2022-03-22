@@ -30,15 +30,12 @@ public class AirPollutionControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<?> entity = new HttpEntity<Object>(headers);
-        ResponseEntity<String> responseEntity;
         String baseUrl = "/airpollution/service/api/v1/air-quality/city";
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(baseUrl).queryParam("key", GlobalConstants.APIKEY).queryParam("city", "Los Angeles").queryParam("state", "California").queryParam("country", "USA");
         String url = new URL("http://localhost:" + randomServerPort + builder.build()).toString();
-        System.out.println("URL:: "+url);
         ResponseEntity<String> result = testRestTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 
         HttpStatus statusCode = result.getStatusCode();
-        System.out.println(statusCode);
         Assert.isTrue(HttpStatus.ACCEPTED == statusCode, "Should be a success status code");
     }
 }

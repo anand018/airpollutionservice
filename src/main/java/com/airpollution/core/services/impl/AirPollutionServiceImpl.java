@@ -26,7 +26,7 @@ public class AirPollutionServiceImpl implements AirPollutionService {
         return processHttpRequest(GlobalConstants.URICITY, queryParams);
     }
 
-    private String processHttpRequest(String uri, MultiValueMap<String, String> queryParams) {
+    public String processHttpRequest(String uri, MultiValueMap<String, String> queryParams) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<?> entity = new HttpEntity<Object>(headers);
